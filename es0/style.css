@@ -1,0 +1,16 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+ul.navbar {
+    list-style-type: none;
+    background-color: blueviolet;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+}
+
+ul.navbar a {
+    text-decoration: none;
+    color: aliceblue;
+}
