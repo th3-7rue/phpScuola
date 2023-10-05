@@ -2,17 +2,11 @@
 session_start();
 $punteggio = $_SESSION["punteggio"];
 $nome = $_SESSION["name"];
-// punteggio relativo al nome con array
-$punteggi = array(
-    "name" => $nome,
-    "punteggio" => $punteggio
-);
-
-// aggiorna cookie array senza json
-
-
-
-
+setcookie(
+    $nome,
+    $punteggio,
+    time() + (86400 * 30), // 86400 = 1 day
+)
 ?>
 
 <body>
