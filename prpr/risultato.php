@@ -2,11 +2,14 @@
 session_start();
 $punteggio = $_SESSION["punteggio"];
 $nome = $_SESSION["name"];
-setcookie(
-    $nome,
-    $punteggio,
-    time() + (86400 * 30), // 86400 = 1 day
-)
+if (!isset($_COOKIE[$punteggio]) || $punteggio > $_COOKIE[$punteggio]) {
+    setcookie(
+        $nome,
+        $punteggio,
+        time() + (86400 * 30), // 86400 = 1 day
+    );
+}
+
 ?>
 
 <body>
