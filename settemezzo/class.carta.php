@@ -7,12 +7,14 @@ class Carta
         $this->numero = $numero;
         $this->seme = $seme;
     }
-    function getNumero()
+    private $carte = array(
+        "denari" => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+        "coppe" => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+        "spade" => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+        "bastoni" => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    );
+    function getCarta()
     {
-        return $this->numero;
-    }
-    function getSeme()
-    {
-        return $this->seme;
+        return $this->carte[$this->seme][$this->numero];
     }
 }
