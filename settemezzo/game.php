@@ -19,7 +19,6 @@ $carta_banco = $mazzo->pesca();
 ?>
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="index.js"></script>
-<label for="puntata">Crediti disponibili: </label>
-<div id="crediti"><?php echo $_SESSION['creditiUser'] ?></div>
+<div id="crediti">Crediti disponibili: <?php echo $_SESSION['creditiUser'] ?></div>
 <input name="puntata" type="number" id="puntata" value="1" min="1" max="50" />
 <button id="btnPuntata">Punta</button>

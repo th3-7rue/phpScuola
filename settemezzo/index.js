@@ -15,7 +15,8 @@ $(document).ready(function () {
             },
             success: function (data) {
                 if (data) {
-                    crediti.html = (data);
+
+                    crediti.html('Crediti disponibili: ' + data);
                 }
             }
         });
