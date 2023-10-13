@@ -1,51 +1,33 @@
 <?php
 class Mazzo
 {
+    private $deck = array();  // Use a simple indexed array for the deck.
 
-
-    private $mazzo = array(
-        "seme" => array("denari" => 2, "coppe" => 3, "spade" => 1, "bastoni" => 4),
-        "carte" => array(
-            "asso" => 1,
-            "due" => 2,
-            "tre" => 3,
-            "quattro" => 4,
-            "cinque" => 5,
-            "sei" => 6,
-            "sette" => 7,
-            "fante" => 11,
-            "cavallo" => 12,
-            "re" => 13
-        )
-    );
-
-    
-    function mischia()
-    {
-        foreach ($this->mazzo as $seme => $carte) {
-            shuffle($this->mazzo[$seme]);
-        }
-    }
     public function __construct()
     {
-        // crea un array di oggeti carta
-        foreach ($this->mazzo as $seme => $carte) {
-            foreach ($carte as $carta => $numero) {
-                $this->mazzo[$seme][$carta] = new Carta($seme, $carta);
+        $semi = ["denari", "coppe", "spade", "bastoni"];
+        $numeri = ["asso", "due", "tre", "quattro", "cinque", "sei", "sette", "fante", "cavallo", "re"];
+
+        // Create the deck of cards
+        foreach ($semi as $seme) {
+            foreach ($numeri as $numero) {
+                $carta = new Carta($seme, $numero);
+                $this->deck[] = $carta;
             }
         }
-        // mischia il mazzo
+
+        // Shuffle the deck
         $this->mischia();
     }
-    function pesca()
+
+    public function mischia()
     {
-        // pesca una carta dal mazzo
-        $seme = array_rand($this->mazzo);
-        $carta = array_rand($this->mazzo[$seme]);
-        $carta = $this->mazzo[$seme][$carta];
-        // rimuovi la carta dal mazzo
-        unset($this->mazzo[$seme][$carta->getCarta()]);
-        // restituisci la carta
-        return $carta;
+        shuffle($this->deck);
+    }
+
+    public function pesca()
+    {
+        // Draw a card from the top of the deck
+        return array_pop($this->deck);
     }
 }
