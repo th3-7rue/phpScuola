@@ -41,16 +41,17 @@ require 'daisyUI.php';
 				<button class="btn btn-primary w-full m-1" name="submit">Accedi</button>
 				<a class="btn btn-secondary m-1 w-full" href="signup.php">Registrati</a>
 
-			</form>
-		</div>
-		<?php
-		//comunico anche l'eventuale tentativo errato di login
-		if (isset($_SESSION["errore_login"]) && $_SESSION["errore_login"] == true) {
-			echo "<p>Nome utente o password errati! Ritenta!</p>";
-			unset($_SESSION["errore_login"]);
-		}
+				<?php
+				//comunico anche l'eventuale tentativo errato di login
+				if (isset($_SESSION["errore_login"]) && $_SESSION["errore_login"] == true) {
+					echo "<p>Nome utente o password errati! Ritenta!</p>";
+					unset($_SESSION["errore_login"]);
+				}
 	}
 	?>
+		</form>
+
+	</div>
 </body>
 
 </html>
