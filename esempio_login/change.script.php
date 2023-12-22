@@ -8,12 +8,18 @@ if (isset($_POST['pw-old']) and isset($_POST['pw-new']) and isset($_SESSION['id'
         exit();
     }
     $id = $_SESSION['id'];
-    $pwOld = password_hash($_POST['pw-old'], PASSWORD_DEFAULT);
-    $stmt = $mydb->prepare('select nome, hash from utenti where id = ? and hash = ?');
-    $stmt->bind_param('is', $id, $pwOld);
+    //echo $id;
+    $pwOld = $_POST['pw-old'];
+    //echo $pwOld;
+    $stmt = $mydb->prepare('select hash from utenti where id = ?');
+    $stmt->bind_param('i', $id);
     $stmt->execute();
-    $stmt->store_result();
-    if ($stmt->num_rows > 0) {
+    $stmt->bind_result($hash);
+    $stmt->fetch();
+    $stmt->close();
+
+    //echo $hash;
+    if (password_verify($pwOld, $hash)) {
         // Le password corrispondono
         $pwNew = password_hash($_POST['pw-new'], PASSWORD_DEFAULT);
         $stmt = $mydb->prepare('update utenti set hash = ? where id = ?');
