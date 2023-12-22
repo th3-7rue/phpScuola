@@ -27,20 +27,22 @@ require 'daisyUI.php';
 	} else {
 		//non è loggato quindi mostro il form
 		?>
-		<p>Dati dell'esempio:</p>
-		<p>username: pippo</p>
-		<p>password: pluto</p>
-		<form id="login" name="login" method="post" action="login.script.php">
+		<div class='m-3 flex place-content-center align-middle'>
 
-			<label for="usr">Nome utente</label>
-			<input type="text" placeholder="Inserisci username" name="usr" required>
+			<form id="login" name="login" method="post" action="login.script.php">
 
-			<label for="pwd">Password</label>
-			<input type="password" placeholder="Inserisci password" name="pwd" required>
 
-			<input type="submit" name="submit" value="Login">
-		</form>
-		<a href="signup.php">Registrati</a>
+				<input class="input input-bordered w-full m-1" type="text" placeholder="Inserisci username" name="usr"
+					required>
+
+				<input class="input input-bordered w-full m-1" type="password" placeholder="Inserisci password" name="pwd"
+					required>
+
+				<button class="btn btn-primary w-full m-1" name="submit">Accedi</button>
+				<a class="btn btn-secondary m-1 w-full" href="signup.php">Registrati</a>
+
+			</form>
+		</div>
 		<?php
 		//comunico anche l'eventuale tentativo errato di login
 		if (isset($_SESSION["errore_login"]) && $_SESSION["errore_login"] == true) {

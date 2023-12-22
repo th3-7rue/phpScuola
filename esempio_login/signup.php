@@ -11,7 +11,7 @@ require 'daisyUI.php';
             <input required name="username" type="text" placeholder="Username" class="input input-bordered w-full ">
             <label for="password">Password</label>
             <input required name="password" type="password" placeholder="Password" class="input input-bordered w-full ">
-            <button class="btn mt-1" type="submit">Registrati</button>
+            <button class="btn btn-primary mt-1">Registrati</button>
         </form>
     </div>
 </body>
