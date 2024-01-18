@@ -18,8 +18,10 @@ if (isset($_GET['film'])) {
     $stmt->prepare('delete from film where titolo like ?');
     $stmt->bind_param('s', $film);
     $stmt->execute();
+
     $rows = $stmt->affected_rows;
-    if ($rows = 1) {
+
+    if ($rows == 1) {
 ?>
         <div>E' stato eliminato un film</div>
     <?php
@@ -27,7 +29,7 @@ if (isset($_GET['film'])) {
     } else {
     ?>
         <div>Sono stati eliminati
-            <?php $rows ?> film
+            <?php echo $rows ?> film
         </div>
 <?php
     }
